@@ -11,9 +11,7 @@ app.use(bodyparser.urlencoded({
 }));
 app.use(bodyparser.json());
 mongoose.connect(
-  "mongodb+srv://admin:" +
-  process.env.MONGO_ATLAS_PW +
-  "@cluster0-3njq6.mongodb.net/quotesdb?retryWrites=true", 
+  "mongodb+srv://admin:80Cd6957@cluster0-3njq6.mongodb.net/quotesdb?retryWrites=true", 
   { 
     useNewUrlParser: true
   }, (err)=>{
