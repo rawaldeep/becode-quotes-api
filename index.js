@@ -1,6 +1,6 @@
 'use strict'
 const express = require("express");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
 let exphbs  = require('express-handlebars');
@@ -22,7 +22,7 @@ mongoose.connect(
   }
 });
 require('./modules/quotes_schema.js');
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
 const quotesController = require('./controllers/quotes_controllers')(app);
 app.set('views', path.join(__dirname, '/views/'));
