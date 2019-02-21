@@ -16,7 +16,7 @@ quotes_schema.find((err, doc) =>{
             author: doc[randomQuote].author
         });
     }else{
-        console.log("error in retrieving data: "+ err);
+        res.json({"error in retrieving data: ": err});
     }
 })
        
@@ -47,7 +47,6 @@ app.get('/delete/:id', (req, res, next) => {
     quotes_schema.findByIdAndRemove(id)
     .then(res.redirect('/list'))
     .catch( err =>{
-        console.log(err);
         res.status(500).json({err});
     });
 });//app get
@@ -84,7 +83,6 @@ const insertData = (req, res) =>{
         if(!err){
             res.redirect('/list');
         }else{
-            console.log(err.name);
             if(err.name == "ValidationError"){
                 handleValidationError(err, req.body);
                 res.render('quotes/update', {
@@ -92,7 +90,7 @@ const insertData = (req, res) =>{
                     quotes: req.body
                 })
             }else{
-                console.log('Error during record insertion: ' + err);
+                res.json({'Error during record insertion: ' : err});
             }
         }
     });
@@ -108,7 +106,7 @@ const updateData = (req, res) =>{
                     quotes: req.body
                 })
             }else{
-                console.log('ERROR during record update: '+ err);
+                res.json({'ERROR during record update: ': err});
             }
         }
     });

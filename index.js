@@ -15,13 +15,15 @@ mongoose.connect(
   "mongodb+srv://admin:80Cd6957@cluster0-3njq6.mongodb.net/quotesdb?retryWrites=true", 
   { 
     useNewUrlParser: true
-  }, (err)=>{
-  if(!err){
-    console.log('database connected');
-  }else{
-    console.log('error in database connection: '+ err);
   }
-});
+//   , (err)=>{
+//   if(!err){
+//     console.log('database connected');
+//   }else{
+//     console.log('error in database connection: '+ err);
+//   }
+// }
+);
 require('./modules/quotes_schema.js');
 // app.use(morgan("dev"));
 
@@ -37,5 +39,5 @@ app.set('view engine', 'hbs');
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`Server running`);
+  // console.log(`Server running`);
 });
