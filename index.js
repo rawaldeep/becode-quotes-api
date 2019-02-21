@@ -1,11 +1,12 @@
 'use strict'
 const express = require("express");
-// const morgan = require("morgan");
+const compression = require('compression');
 const mongoose = require("mongoose");
 const path = require("path");
 let exphbs  = require('express-handlebars');
 const bodyparser = require('body-parser');
 const app = express();
+app.use(compression());
 app.use(bodyparser.urlencoded({
   extended: true
 }));
